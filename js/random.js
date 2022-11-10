@@ -4,30 +4,26 @@ function generateAmountNumber() {
     const amountNumber = document.querySelector('.amount').value;
     const uniqueCheckNumber = document.querySelector('.unique-numbers');
     const randomResult = document.querySelector('.result');
-    const newElem = document.createElement('br');
     const result = [];
 
     let random;
 
-    if (amountNumber > (maxNumber + minNumber)) {
+    if (
+        (amountNumber > (maxNumber + minNumber))
+        && (amountNumber > 100)
+    ) {
         return;
-    } else if (amountNumber > 100) {
-        return;
-    } else {
-        while (result.length < Math.trunc(amountNumber)) {
-            if (uniqueCheckNumber.checked) {
-                random = generateInteger(minNumber, maxNumber);
-                if (!result.includes(random)) {
-                    result.push(random);
-                }
-            } else {
-                result.push(generateInteger(minNumber, maxNumber));
-            }
-        }
     }
 
-    if (randomResult.innerHTML.length > 100) {
-        newElem.innerHTML
+    while (result.length < Math.trunc(amountNumber)) {
+        if (uniqueCheckNumber.checked) {
+            random = generateInteger(minNumber, maxNumber);
+            if (!result.includes(random)) {
+                result.push(random);
+            }
+        } else {
+            result.push(generateInteger(minNumber, maxNumber));
+        }
     }
 
     randomResult.innerHTML = result.join(', ');
