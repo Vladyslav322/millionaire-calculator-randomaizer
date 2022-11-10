@@ -2,15 +2,15 @@ function generateAmountNumber() {
     const minNumber = document.querySelector('.min').value;
     const maxNumber = document.querySelector('.max').value;
     const amountNumber = document.querySelector('.amount').value;
-    const inputUnique = document.querySelector('#input-unique');
+    const uniqueCheckNumber = document.querySelector('.unique-numbers');
     const randomResult = document.querySelector('.result');
     const newElem = document.createElement('br');
     const result = [];
 
     let random;
 
-    while (result.length !== Math.trunc(amountNumber)) {
-        if (inputUnique.checked) {
+    while (result.length < Math.trunc(amountNumber)) {
+        if (uniqueCheckNumber.checked) {
             random = generateInteger(minNumber, maxNumber);
             if (!result.includes(random)) {
                 result.push(random);
