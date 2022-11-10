@@ -9,14 +9,20 @@ function generateAmountNumber() {
 
     let random;
 
-    while (result.length < Math.trunc(amountNumber)) {
-        if (uniqueCheckNumber.checked) {
-            random = generateInteger(minNumber, maxNumber);
-            if (!result.includes(random)) {
-                result.push(random);
+    if (amountNumber > (maxNumber + minNumber)) {
+        return;
+    } else if (amountNumber > 100) {
+        return;
+    } else {
+        while (result.length < Math.trunc(amountNumber)) {
+            if (uniqueCheckNumber.checked) {
+                random = generateInteger(minNumber, maxNumber);
+                if (!result.includes(random)) {
+                    result.push(random);
+                }
+            } else {
+                result.push(generateInteger(minNumber, maxNumber));
             }
-        } else {
-            result.push(generateInteger(minNumber, maxNumber));
         }
     }
 

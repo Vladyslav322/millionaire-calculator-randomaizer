@@ -41,6 +41,8 @@
 }
 
 .result {
+    line-height: 1.5;
+    word-spacing: 10px;
     overflow: hidden;
     max-width: 600px;
     color: honeydew;
